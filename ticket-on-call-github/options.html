@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ticket sur appel 3CX</title>
+<style>
+  body { font-family: Segoe UI, sans-serif; max-width: 720px; margin: 24px auto; padding: 0 12px; }
+  h2 { display: flex; align-items: center; gap: 10px; }
+  h3 { margin-top: 32px; border-top: 1px solid #ddd; padding-top: 16px; }
+  label { display: block; margin-top: 16px; font-weight: 600; }
+  input, textarea { width: 100%; padding: 6px; box-sizing: border-box; font: inherit; }
+  small { color: #555; }
+  button { padding: 8px 16px; cursor: pointer; }
+  .snip { border: 1px solid #ccc; border-radius: 8px; padding: 12px; margin-top: 12px; display: grid; gap: 8px; grid-template-columns: 1fr 160px auto; }
+  .snip textarea { grid-column: 1 / -1; min-height: 70px; }
+  .key { text-align: center; background: #f0f6ff; cursor: pointer; }
+  .key:focus { background: #ffe9a8; }
+  #save { margin-top: 20px; background: #0078d4; color: #fff; border: 0; border-radius: 6px; }
+</style>
+</head>
+<body>
+<h2><img src="icons/icon48.png" width="32" height="32" alt="">Ticket sur appel 3CX</h2>
+
+<h3>1. Ticket automatique</h3>
+<label>URL de création de ticket</label>
+<input id="ticketUrl">
+
+<label>Sélecteur CSS de détection d'appel (optionnel)</label>
+<input id="selector" placeholder="par défaut : app-call-control call-view">
+<small>Laisser vide pour utiliser la valeur par défaut.</small>
+
+<h3>2. Textes prêts à coller</h3>
+<small>Cliquez dans la case « Raccourci », puis appuyez sur vos touches (ex : Alt+1).
+Le texte se colle dans le champ où se trouve le curseur.</small>
+<div id="list"></div>
+<p><button id="add">+ Ajouter un texte</button></p>
+
+<button id="save">Enregistrer</button> <span id="msg"></span>
+<script src="options.js"></script>
+</body>
+</html>

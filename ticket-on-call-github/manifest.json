@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Ticket sur appel 3CX",
+  "version": "1.2.0",
+  "description": "Ouvre automatiquement la page de création de ticket quand un appel arrive sur 3CX, et colle des textes prédéfinis avec un raccourci clavier.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.example.on3cx.fr/*"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Ticket sur appel 3CX – réglages"
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["*://*.example.on3cx.fr/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://*.example.on3cx.fr/*", "*://*.tickets.example.com/*"],
+      "js": ["snippets.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "options_page": "options.html"
+}
